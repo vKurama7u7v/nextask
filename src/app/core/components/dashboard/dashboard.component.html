@@ -1,0 +1,49 @@
+<div class="body-dashboard" id="body-pd">
+  <app-navbar-dashboard></app-navbar-dashboard>
+  <main class="component-dashboard">
+    <div class="section-dash">
+      <div class="header-dash-options mb-3">
+        <div class="buscador-dash">
+          <div class="form__div">
+            <i class="fas fa-search"></i>
+            <input type="text" class="form__input" placeholder="Buscador" />
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <button class="btn__dash-options btn-create" (click)="addLista()">
+                <i class="fas fa-plus"></i><span>Nueva Lista</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="section-dash">
+      <div class="title__section">
+        <h1>Mis Listas</h1>
+      </div>
+      <div class="section__noFound" *ngIf="listas.length == 0">
+        <h1><i class="fas fa-info-circle"></i>No hay ninguna lista creada</h1>
+      </div>
+
+      <div class="listas__section" *ngIf="listas.length > 0">
+        <a
+          *ngFor="let lista of listas"
+          href=""
+          [routerLink]="['/dashboard/lista/', lista.id]"
+          (click)="alertCons(lista.nombre)"
+          class="lista__item"
+          id="{{ lista.color }}"
+        >
+          <h2>{{ lista.nombre }}</h2>
+          <p><span>Creación: </span> {{ lista.fecha_creacion }}</p>
+          <p><span>Edición: </span> {{ lista.fecha_actualizacion }}</p>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,97 @@
+<div class="body-dashboard" id="body-pd">
+  <app-navbar-dashboard></app-navbar-dashboard>
+  <main class="component-dashboard">
+    <div class="section-dash">
+      <div class="header-dash-options">
+        <a href="" routerLink="/dashboard/listas" class="logo">
+          Dashboard &gt; {{ datosLista.nombre }}
+        </a>
+        <nav>
+          <ul>
+            <li>
+              <button
+                class="btn__dash-options btn-delete"
+                (click)="eliminarLista(datosLista.id)"
+              >
+                <i class="far fa-trash-alt"></i><span>Eliminar</span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn__dash-options btn-edit"
+                (click)="editarLista(datosLista.id)"
+              >
+                <i class="fas fa-pencil-alt"></i><span>Editar</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="section-dash">
+      <div class="title__section">
+        <h1>Mis Tareas</h1>
+      </div>
+      <div class="cont-datatable">
+        <div class="header-dash-options mb-3">
+          <div class="buscador-dash">
+            <div class="form__div">
+              <i class="fas fa-search"></i>
+              <input type="text" class="form__input" placeholder="Buscador" />
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <button
+                  class="btn__dash-options btn-create"
+                  (click)="addTarea()"
+                >
+                  <i class="fas fa-plus"></i><span>Nueva Tarea</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <div class="clearfix"></div>
+        </div>
+        <div class="section__noFound" *ngIf="tareas.length == 0">
+          <h1><i class="fas fa-info-circle"></i>No hay ninguna tarea creada</h1>
+        </div>
+        <table *ngIf="tareas.length > 0">
+          <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Nombre</th>
+              <th>Creación</th>
+              <th>Status</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tr-hover" *ngFor="let tarea of tareas">
+              <td>{{ tarea.index }}</td>
+              <td>{{ tarea.nombre }}</td>
+              <td>{{ tarea.fecha_creacion }}</td>
+              <td><p class="status status-{{ tarea.status }}"></p></td>
+              <td>
+                <button
+                  class="btn btn-eliminar"
+                  (click)="eliminarTarea(tarea.id)"
+                >
+                  <i class="far fa-trash-alt"></i>
+                  <span>Eliminar</span>
+                </button>
+
+                <button class="btn btn-editar" (click)="esTarea(tarea.id)">
+                  <i class="fas fa-pencil-alt"></i>
+                  <span>Editar</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

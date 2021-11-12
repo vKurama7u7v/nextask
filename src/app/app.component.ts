@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nextask';
+  BG_Login: string = "assets/img/BG-Login-Desktop.png";
 }

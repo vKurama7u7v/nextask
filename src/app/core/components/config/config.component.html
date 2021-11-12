@@ -1,0 +1,105 @@
+<div class="body-dashboard" id="body-pd">
+  <header class="header-dashboard" id="header-dashboard">
+    <div class="header__toggle">
+      <i class="bx bx-menu" id="header-toggle"></i>
+    </div>
+
+    <div class="dashboard-right" *ngIf="userLogged | async as user">
+      <ul>
+        <li>
+          <a>
+            <p *ngIf="user.displayName">
+              {{ user.displayName }}
+              <br />
+              <span>{{ user.email }}</span>
+            </p>
+
+            <p *ngIf="!user.displayName">
+              Bienvenid@
+              <br />
+              <span>{{ user.email }}</span>
+            </p>
+
+            <div class="perfil__img">
+              <div class="header__img" *ngIf="user.photoURL">
+                <img [src]="user.photoURL" alt="user profile" />
+              </div>
+              <div class="header__img" *ngIf="!user.photoURL">
+                <img
+                  src="https://cdn.glitch.com/27131a37-2b0c-4505-85fd-e4cd33d55125%2FRukiaV1.png?v=1617321512636"
+                  alt="user profile"
+                />
+              </div>
+            </div>
+            <i class="bx bx-caret-down nav__icon"></i>
+          </a>
+
+          <div class="dropdown">
+            <ul>
+              <li>
+                <a href="" routerLink="/app/perfil"
+                  ><span class="material-icons nav__icon">person</span>Mi
+                  Perfil</a
+                >
+              </li>
+              <li>
+                <a href="" routerLink="/app/config"
+                  ><span class="material-icons nav__icon">settings</span
+                  >Configuraciones</a
+                >
+              </li>
+              <li>
+                <a href="" routerLink="/auth/login" (click)="logout()"
+                  ><span class="material-icons nav__icon">logout</span>Cerrar
+                  Sesión</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ====== MENÚ LATERAL ===== -->
+  <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+      <div class="navbar_lateral">
+        <a href="" routerLink="/dashboard/listas" class="nav__logo">
+          <span class="nav__logo-icon"><b>NT</b></span>
+          <!-- <span class="material-icons nav__logo-icon">code</span> -->
+          <span class="nav__logo-name">NexTask</span>
+        </a>
+
+        <div class="nav__list">
+          <a href="" routerLink="/dashboard/listas" class="nav__link">
+            <span class="material-icons nav__icon">dashboard</span>
+            <!-- <span class="material-icons nav__icon">school</span> -->
+            <span class="nav__name">Dashboard</span>
+          </a>
+
+          <a href="" routerLink="/app/perfil" class="nav__link">
+            <span class="material-icons nav__icon">account_circle</span>
+            <span class="nav__name">Perfil</span>
+          </a>
+
+          <a href="" routerLink="/app/config" class="nav__link activado">
+            <span class="material-icons nav__icon">settings</span>
+            <span class="nav__name">Configuraciones</span>
+          </a>
+        </div>
+      </div>
+      <a href="" class="nav__link" routerLink="/auth/login" (click)="logout()">
+        <span class="material-icons nav__icon">logout</span>
+        <span class="nav__name">Cerrar Sesión</span>
+      </a>
+    </nav>
+  </div>
+  <main class="component-dashboard">
+    <div class="section-dash">
+      <div class="title__section">
+        <h1>Configuraciones en proceso...</h1>
+      </div>
+    </div>
+  </main>
+</div>

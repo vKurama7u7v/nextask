@@ -1,0 +1,75 @@
+<app-navbar-login></app-navbar-login>
+
+<body class="body-register">
+  <!--        MAIN        -->
+  <main class="login">
+    <div class="bg-login">
+      <div class="panel">
+        <div class="right">
+          <div class="cont-form">
+            <div class="login-form-title">
+              <h1>Regístrarse</h1>
+            </div>
+            <form
+              action=""
+              class="Grid__Form"
+              [formGroup]="registerForm"
+              (ngSubmit)="onRegister()"
+            >
+              <!-- <div class="form__div">
+                <i class="fas fa-user form__icon"></i>
+                <input type="name" class="form__input" placeholder=" " formControlName="username" />
+                <label for="" class="form__label">Nombre de Usuario</label>
+              </div> -->
+              <div class="form__div">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  class="form__input"
+                  placeholder=" "
+                  formControlName="email"
+                />
+                <label for="" class="form__label">Correo Electrónico</label>
+              </div>
+              <div class="form__div">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  class="form__input"
+                  placeholder=" "
+                  formControlName="password"
+                />
+                <label for="" class="form__label">Contraseña</label>
+              </div>
+
+              <div class="Contenedor__boton">
+                <input type="submit" value="Regístrarse" class="form__btn" />
+              </div>
+            </form>
+            <div class="form-info">
+              <p>Crea tu cuenta con otras plataformas</p>
+              <button class="btn-sm" (click)="IngresarConGoogle()">
+                <i class="fab fa-google"></i>
+              </button>
+              <button class="btn-sm"><i class="fab fa-facebook-f"></i></button>
+              <button class="btn-sm"><i class="fab fa-github-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="left">
+          <div class="info">
+            <h2>¿Ya tienes una cuenta?</h2>
+            <p>Haz clic en el siguiente botón para Iniciar Sesión.</p>
+            <a routerLink="/auth/login">Iniciar Sesión</a>
+          </div>
+          <div class="cont-img">
+            <img
+              src="https://cdn.glitch.com/e8ab3bf9-2f66-4252-ab8d-6aa5e26e2260%2FMobile%20login-rafiki.png?v=1633294221000"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

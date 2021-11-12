@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "to-do-list-68d8f": {
+      "hosting": {
+        "nextask": [
+          "to-do-list-68d8f"
+        ]
+      }
+    },
+    "to-do-list-345ce": {
+      "hosting": {
+        "nextask": [
+          "to-do-list-345ce"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "to-do-list-345ce"
+  }
+}

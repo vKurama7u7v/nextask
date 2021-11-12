@@ -1,0 +1,82 @@
+<app-navbar-login></app-navbar-login>
+
+<body class="body-login">
+  <!--        MAIN        -->
+  <main class="login">
+    <div class="bg-login">
+      <div class="panel">
+        <div class="left">
+          <div class="info">
+            <h2>¿Aún no tienes una cuenta?</h2>
+            <p>
+              Registrate para crear una cuenta. Haz clic en el siguiente botón.
+            </p>
+            <a href="" routerLink="/auth/register">Regístrarse</a>
+          </div>
+          <div class="cont-img">
+            <img
+              src="https://cdn.glitch.com/e8ab3bf9-2f66-4252-ab8d-6aa5e26e2260%2FForgot%20password-rafiki.png?v=1633288815606"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="right">
+          <div class="cont-form">
+            <div class="login-form-title">
+              <h1>Iniciar Sesión</h1>
+            </div>
+            <form
+              class="Grid__Form"
+              id="Grid__Form"
+              [formGroup]="loginForm"
+              (ngSubmit)="onLogin()"
+            >
+              <div class="form__div" id="grupo__correo">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  class="form__input"
+                  placeholder=" "
+                  name="correo"
+                  id="correo"
+                  formControlName="email"
+                />
+                <label for="correo" class="form__label"
+                  >Correo Electrónico</label
+                >
+              </div>
+              <div class="form__div" id="grupo__password">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  class="form__input"
+                  placeholder=" "
+                  name="password"
+                  id="password"
+                  formControlName="password"
+                />
+                <label for="" class="form__label">Contraseña</label>
+              </div>
+
+              <div class="Contenedor__boton">
+                <input type="submit" value="Iniciar Sesión" class="form__btn" />
+              </div>
+            </form>
+            <div class="form-info">
+              <p>Iniciar Sesión con otras plataformas</p>
+              <button class="btn-sm" (click)="IngresarConGoogle()">
+                <i class="fab fa-google"></i>
+              </button>
+              <button class="btn-sm" (click)="IngresarConFacebook()">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button class="btn-sm" (click)="IngresarConGithub()">
+                <i class="fab fa-github-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
